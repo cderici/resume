@@ -1,6 +1,6 @@
 TEXFILES := $(wildcard *.tex)
 
-all:  main
+all:  main cloud pl
 
 main: $(TEXFILES)
 	latexmk -pdf main.tex

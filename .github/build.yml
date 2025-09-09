@@ -1,0 +1,68 @@
+name: Build main
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 8 * * *'
+
+# The release job needs write access to repo contents
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: ghcr.io/xu-cheng/texlive-full:20250401
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile via Makefile
+        run: |
+          make              # build default target
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: main-resume
+          path: main.pdf
+        with:
+          name: pl-resume
+          path: pl.pdf
+        with:
+          name: cloud-resume
+          path: cloud.pdf
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: ${{ needs.build.result == 'success' }}
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: main-resume
+          path: .
+        with:
+          name: pl-resume
+          path: .
+        with:
+          name: cloud-resume
+          path: .
+
+      - name: Create / Update single release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: latest-pdf
+          name: Most Recent Build
+          body: |
+            Automated build from commit ${{ github.sha }}.
+            This release is replaced on every successful CI run.
+          artifacts: "*.pdf"
+          allowUpdates: true
+          replacesArtifacts: true
+          artifactContentType: application/pdf
+          token: ${{ secrets.GITHUB_TOKEN }}
