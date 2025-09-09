@@ -4,17 +4,13 @@
 
 \roottitle{Selected Projects} % Top level section
 
-%%%%%%%%%%%%%%%%%% JUJU %%%%%%%%%%%%%%%%% 
-\inputProject{juju}
+\makeatletter
+\newcommand{\RenderProjects}[1]{%
+  \@for\proj:=#1\do{\expandafter\inputProject\expandafter{\proj}}%
+}
+\makeatother
 
-%%%%%%%%%%%%%%%%%% TERRAFORM %%%%%%%%%%%%%%%%% 
-\inputProject{terraform}
+% whoever \input's this module should:
+% \providecommand{\projectorder}{juju,terraform,pycket,rax,hazircevap}
 
-%%%%%%%%%%%%%%%%%% Pycket %%%%%%%%%%%%%%%%% 
-\inputProject{pycket}
-
-%%%%%%%%%%%%%%%%%% RAX %%%%%%%%%%%%%%%%% 
-\inputProject{rax}
-
-%%%%%%%%%%%%%%%%%% HAZIRCEVAP %%%%%%%%%%%%%%%%% 
-\inputProject{hazircevap}
+\RenderProjects{\projectorder}
