@@ -1,0 +1,398 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cies Resume/CV
+% LaTeX Template
+% Version 1.1 (20/7/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Cies Breijs (cies@kde.nl)
+% https://github.com/cies/resume with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	CANER CUSTOM COMMANDS
+%----------------------------------------------------------------------------------------
+
+\RequirePackage{fontawesome}
+
+\newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{\normalfont #1}\hspace{0.5em}#2\hspace{2em}}}
+
+
+\newcommand{\myhref}[2]{\mbox{\href{#1}{\textcolor{linkColor}{#2}}}}
+
+\newcommand{\mycomment}[1]{}
+
+\newcommand{\canerhspace}{\hspace{-2mm}}
+
+% ICONS
+\newcommand{\githubsymbol}{\faGithub}
+\newcommand{\github}[1]{\printinfo{\githubsymbol}{#1}}
+\newcommand{\homepagesymbol}{\small\faExternalLink}
+\newcommand{\homepage}[1]{\printinfo{\homepagesymbol}{#1}}
+\newcommand{\locationsymbol}{\faMapMarker}
+\newcommand{\location}[1]{\printinfo{\locationsymbol}{#1}}
+\newcommand{\emailsymbol}{\small\faAt}
+\newcommand{\email}[1]{\printinfo{\emailsymbol}{#1}}
+\newcommand{\scrollsymbol}{\small\faFileO}
+\newcommand{\scroll}[1]{\printinfo{\scrollsymbol}{#1}}
+\newcommand{\linkedinsymbol}{\small\faLinkedinSquare}
+\newcommand{\linkedin}[1]{\printinfo{\linkedinsymbol}{#1}}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[9pt,a4paper]{article} % Font size (10-12pt) and paper size (a4paper, letterpaper, legalpaper, etc)
+
+\hyphenation{Some-long-word} % Specify custom hyphenation points in words with dashes where you would like hyphenation to occur, or alternatively, don't put any dashes in a word to stop hyphenation altogether
+
+\include{structure} % Include structure.tex which contains packages and document layout definitions
+
+\begin{document} 
+
+\definecolor{linkColor}{RGB}{14, 36, 143}
+
+%----------------------------------------------------------------------------------------
+%	CANER CUSTOM
+%----------------------------------------------------------------------------------------
+
+\colorlet{accent}{blue!70!black}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\maintitle{Caner Derici}{}  % Your name and date of birth or subtitle
+
+%\noindent Software Engineer
+
+\vspace{1mm}
+
+\noindent\homepage{\href{https://dericilab.live}{dericilab.live}} \canerhspace \email{\href{mailto://caner@dericilab.live}{caner@dericilab.live}} \canerhspace \linkedin{\href{https://www.linkedin.com/in/canerderici/}{canerderici}} \canerhspace \github{\href{https://github.com/cderici}{cderici}} \canerhspace \scroll{\href{https://cderici.github.io/resume}{extended (CV)}} \canerhspace \location{\textsc{UT, USA}}
+
+\mycomment{
+\noindent\href{mailto:caner@dericilab.live}{caner@dericilab.live}\bull % Your email address
+\textsmaller{+}1 (111) 111-1112\bull smith01 \textit{(Skype)}\bull % Your phone number(s) and Skype username
+\href{http://www.johnsmith.com}{www.johnsmith.com}\\ % Your URL
+123 Broadway\bull City, 12345\bull State\bull Country % Your address
+}
+\spacedhrule{0.9em}{-0.4em} % Horizontal rule - the first bracket is whitespace before and the second is after
+
+%----------------------------------------------------------------------------------------
+%	SUMMARY SECTION
+%----------------------------------------------------------------------------------------
+
+% \roottitle{Summary} % Root section title
+
+% \vspace{-1.3em} % Reduce whitespace after the Summary heading and the two-column content
+
+% \begin{multicols}{2}  % Start a two-column layout
+% \noindent \textit{A summary of your interests, achievements, history, topic of study or any other short summary of your professional life.}\\\\
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc iaculis scelerisque vestibulum. Sed ut sapien et dui mollis condimentum. Phasellus enim lectus, dignissim vitae velit sit amet, porttitor tincidunt lectus. Vivamus adipiscing volutpat lacinia. Sed dui ipsum, iaculis id facilisis sed, dapibus quis lacus. Quisque blandit hendrerit malesuada. Nunc sollicitudin nisl nunc, vitae luctus leo tincidunt vel.
+
+% Pellentesque bibendum convallis adipiscing. Suspendisse facilisis id massa a lacinia. Nullam odio nibh, placerat at fermentum in, tincidunt eu ipsum. Nullam adipiscing lacus id dui suscipit commodo. Vestibulum iaculis leo imperdiet, porta lorem eu, tempus tortor. Donec interdum risus ullamcorper, vestibulum nulla ut, tincidunt ante. Duis adipiscing auctor nisi, quis tempor tortor ornare aliquet. Aenean at tempor leo. Nam eleifend venenatis elit id aliquet. Mauris quis lacinia dolor, a posuere tellus. Suspendisse nec augue pretium, condimentum risus vitae, dignissim tellus. Proin gravida ante eget massa lacinia consequat. Integer pharetra vel ligula sed vulputate. Integer eget erat quam. Proin adipiscing lorem ac purus adipiscing, non ullamcorper nisi porttitor. 
+% \end{multicols}
+
+% \spacedhrule{0.5em}{-0.4em} % Horizontal rule - the first bracket is whitespace before and the second is after
+
+%----------------------------------------------------------------------------------------
+%	SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+\roottitle{Technical Skills} % Top level section
+\small
+\vspace{1.5mm}
+\begin{center}
+    \begin{tabular}{@{} r l @{}}
+    \textbf{Areas of Expertise:} & \acr{Distributed Systems} · \acr{Compilers \& Programming Languages} · \acr{Machine Learning} \\
+    \textbf{Languages:} & \acr{Go} · \acr{Python} · \acr{C/C++} · \acr{Racket/Scheme} · \acr{Java} · \acr{SQL} · \acr{JavaScript} \\
+    \textbf{Cloud:} & \acr{Kubernetes} · \acr{AWS} · \acr{GCE} · \acr{Terraform} · \acr{LXD} · \acr{Docker} \\
+    \textbf{API, DB \& Misc:} & \acr{REST} · \acr{gRPC} · \acr{DQLite} · \acr{MongoD}B · \acr{PostgreSQL} · \acr{Git} · \acr{CI/CD} · \acr{GitHub Actions} · \acr{Jenkins} \\
+\end{tabular}
+\end{center}
+
+\normalsize
+\vspace{-5mm}
+
+%\inlineheadsection % Special section that has an inline header with a 'hanging' paragraph
+%{Areas of expertise:}{\small Distributed Systems $\cdot$ Compilers \& Programming Languages $\cdot$ Machine Learning}
+
+%\vspace{0.9mm}
+
+%\inlineheadsection % Special section that has an inline header with a 'hanging' paragraph
+%{Languages:}
+%{\hspace{1.1cm} \acr{Go} $\cdot$ \acr{Python} $\cdot$ \acr{C/C++} $\cdot$ \acr{Racket/Scheme} $\cdot$ \acr{Java} $\cdot$ \acr{SQL/NoSQL} $\cdot$ \acr{JavaScript}}
+
+%\vspace{1smm}
+
+%\inlineheadsection % Special section that has an inline header with a 'hanging' paragraph
+%{Cloud:}
+%{\hspace{1.8cm} \acr{Kubernetes} $\cdot$ \acr{AWS} $\cdot$ \acr{GCE} $\cdot$ \acr{Terraform} $\cdot$ \acr{LXD} $\cdot$ \acr{Docker}}
+
+%\vspace{1mm}
+
+%\inlineheadsection % Special section that has an inline header with a 'hanging' paragraph
+%{General:}
+%{\hspace{1.5cm} \acr{REST} $\cdot$ g\acr{RPC} $\cdot$ \acr{DQL}ite $\cdot$ Mongo\acr{DB} $\cdot$ Postgre\acr{SQL} $\cdot$ \acr{Git} $\cdot$ \acr{CI}/\acr{CD} $\cdot$ \acr{GitHub Actions} $\cdot$ \acr{Jenkins}}
+
+
+%------------------------------------------------
+
+\spacedhrule{1.6em}{-0.4em} % Horizontal rule - the first bracket is whitespace before and the second is after
+
+%----------------------------------------------------------------------------------------
+%	EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\roottitle{Experience} % Top level section
+
+%%%%%%%%%%%%%%%%%% CANONICAL %%%%%%%%%%%%%%%%% 
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{Canonical USA}
+{\small \textsc{Remote, US}} {
+
+\headedsubsection % Job title entry for the current employer
+{Software Engineer II (L4), Enterprise Cloud Engineering, \myhref{https://github.com/juju/juju}{Juju} team.}
+{\small 2021 -- 2024}
+{\small \bodytext{
+Worked on distributed orchestration system handling 1000+ node cloud workloads across multiple regions with 99.9\% availability. Primarily in Go, and Python.
+\begin{itemize}
+    \item Architected full-stack distributed components, improving reliability, fault tolerance, back-pressure handling on an eventually consistent backend.
+    \item Doubled the user base of client libraries \myhref{https://github.com/juju/python-libjuju/}{Python-libjuju}, \myhref{https://github.com/juju/terraform-provider-juju/}{Terraform Juju Provider}), owned all deliverables for 3 years, and maintained release cadence.
+    \item Helped transition \myhref{https://github.com/juju/juju}{Juju}'s data model from No\acr{SQL} Mongo\acr{DB} to relational \acr{DQL}ite (e.g., \myhref{https://github.com/juju/juju/pull/17767}{sample \acr{PR}}).
+    \item Redesigned the facade-based \acr{RPC} \acr{API} and developed a \acr{REST} \acr{API} alternative with Open\acr{API}.
+    \item Took part in roadmap planning, cross-team coordination, mentoring junior engineers, and hiring. 
+\end{itemize}
+}}
+}
+
+%%%%%%%%%%%%%%%%%% INDIANA UNI %%%%%%%%%%%%%%%%% 
+
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{Indiana University}
+{\small \textsc{IN, US}} {
+
+\headedsubsection % Job title entry for the current employer
+{Course Instructor, Teaching \& Research Assistant}
+{\small 2015 -- 2021}
+{\small \bodytext{Work during PhD. I taught data structures \& algorithms, compilers, virtual machines, and domain specific languages. Researched runtime performance of \acr{JIT} compiled \acr{VM}s for functional languages.}}
+% {\small \bodytext{I taught data structures \& algorithms, compilers, principles of programming languages, and domain specific languages. Researched runtime performance of \acr{JIT} compiled \acr{VM}s for functional languages.}}
+}
+
+%%%%%%%%%%%%%%%%%% ASSECO %%%%%%%%%%%%%%%%% 
+
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{Asseco SEE Group}
+{} {
+
+\headedsubsection % Job title entry for the current employer
+{Software Engineer}
+{\small 2012-2013}
+{\small \bodytext{International software company developing virtual payment platforms for e-commerce platforms. I developed and delivered 3 virtual point-of-sale projects in 1 year. Used Java, Apache Tomcat, Spring, Mercurial, Jira.}}
+}
+
+\vspace{2mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%------------------------------------------------
+% \mycomment{ %%%%%%%%%% COMMENT
+
+% \headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+% {\href{http://www.intellecap.com}{Intellecap}/\href{http://istpl.in}{\acr{ISTPL}}}
+% {\textsc{Mumbai, Pune \& Hyderabad, India}} {
+
+% \headedsubsection % Job title entry for the current employer
+% {\acr{IT} Consultant}
+% {Nov '08 -- Feb '09}
+% {\bodytext{Intellecap is a social-sector advisory firm serving corporates, non-profits, development agencies and governments working in developing markets. I assessed their software development team and methodologies, trained their developers and build several web applications. One of those apps is \href{http://www.mostfit.org}{Mostfit}, an open source \acr{MIS} for \href{http://en.wikipedia.org/wiki/Microcredit}{microcredit} lenders.}}
+
+% \headedsubsection % Job title entry for the current employer
+% {\acr{IT} \& Strategy Consultant}
+% {Jan '10 -- Aug '11}
+% {\bodytext{\href{http://www.mostfit.org}{Mostfit} became a success and I was called in to solve several technical challenges, look at potential growth strategies, and assist in making a business case for this product in a company of its own.}}
+
+% \headedsubsection % Job title entry for the current employer
+% {Chief Technology Officer}
+% {Oct '11 -- present}
+% {\bodytext{Joined the \acr{C}-family to make \href{http://www.mostfit.org}{Mostfit} the nr.1 software solution for micro credit lenders around the globe.}}
+% }
+
+% }
+
+% \mycomment{
+% \begin{center}
+% \textit{Please refer to \href{http://www.linkedin.com/in/ciesbreijs}{my Linkedin profile} for the complete list of work experiences along with recommendations.}
+% \end{center}
+% }
+%------------------------------------------------
+
+\spacedhrule{-0.2em}{-0.4em} % Horizontal rule - the first bracket is whitespace before and the second is after
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+% \vspace{-1mm}
+
+\roottitle{Education} % Top level section
+
+%%%%%%%%%%%%%%%%%% PHD %%%%%%%%%%%%%%%%% 
+
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{\small PhD (abd), \myhref{https://luddy.indiana.edu/index.html}{Indiana University, Bloomington}, Computer Science, Programming Languages}
+{} {
+\vspace{-0.3cm}
+\headedsubsection % Job title entry for the current employer
+{}
+{}
+{\small \bodytext{Optimizing VM run-times for self-hosting dynamic languages on meta-tracing JIT compilers.}}
+}
+
+%%%%%%%%%%%%%%%%%% MSC %%%%%%%%%%%%%%%%% 
+
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{\small MSc, \myhref{https://www.cmpe.boun.edu.tr/}{Boğaziçi University}, Computer Science, Machine Learning, Natural Language Processing}
+{} {
+\vspace{-0.8cm}
+\headedsubsection % Job title entry for the current employer
+{}
+{}
+{\bodytext{}}
+}
+
+%%%%%%%%%%%%%%%%%% BSC %%%%%%%%%%%%%%%%% 
+
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{\small BSc, \myhref{https://www.bilgi.edu.tr/en/academic/faculty-of-engineering-and-natural-sciences/computer-engineering/}{Bilgi University}, Computer Science}
+{} {
+\vspace{-0.6cm}
+\headedsubsection % Job title entry for the current employer
+{}
+{}
+{\bodytext{}}
+}
+% \vspace{-0.2cm}
+
+\spacedhrule{0.5em}{-0.4em} % Horizontal rule - the first bracket is whitespace before and the second is after
+
+%----------------------------------------------------------------------------------------
+%	SELECTED PROJECTS
+%----------------------------------------------------------------------------------------
+
+\roottitle{Selected Projects} % Top level section
+
+%%%%%%%%%%%%%%%%%% JUJU %%%%%%%%%%%%%%%%% 
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{}
+{} {
+\vspace{-0.4cm}
+\headedsubsection % Job title entry for the current employer
+{\myhref{https://github.com/juju/juju}{Juju}}
+{}
+{\small\bodytext{
+
+A large scale distributed orchestration engine for managing cloud workloads on any infrastructure (Kubernetes or otherwise) across various cloud providers (e.g., \acr{AWS}, \acr{GCE}). Juju is written in Go, and has over a million lines of code. I was a core maintainer in a team of 14 engineers. See Canonical above for details of my contribution.
+
+}}
+}
+
+%%%%%%%%%%%%%%%%%% TERRAFORM %%%%%%%%%%%%%%%%% 
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{}
+{} {
+\vspace{-0.4cm}
+\headedsubsection % Job title entry for the current employer
+{\myhref{https://github.com/juju/terraform-provider-juju}{Terraform Juju Provider}}
+{}
+{\small\bodytext{A Terraform provider that enables integration with \myhref{https://github.com/juju/juju}{Juju} while managing Terraform environments. I implemented new resources and features (e.g., \myhref{https://discourse.charmhub.io/t/manual-provisioning-on-aws-using-terraform-juju-provider/10989}{manual provisioning on \acr{AWS}}), migrated the provider from the sdk2 to the provider framework (e.g., \myhref{https://github.com/juju/terraform-provider-juju/pull/264}{sample PR}), and maintained release cadence of new versions. All in Go.}}
+}
+
+%%%%%%%%%%%%%%%%%% Pycket %%%%%%%%%%%%%%%%% 
+
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{}
+{} {
+\vspace{-0.4cm}
+\headedsubsection % Job title entry for the current employer
+{\myhref{http://github.com/pycket/pycket}{Pycket: A meta-tracing \textsc{JIT} compiler for self-hosting Racket}}
+{}
+{\small\bodytext{
+
+PhD thesis project. Developed and maintained Pycket for over five years, designing the compiler to bootstrap the entire Racket language on a meta-tracing \acr{JIT} backend. Contributed to a new \acr{IR} (linklets, see publications) for a more portable Racket run-time. Built \myhref{https://github.com/cderici/trace-draw}{performance analysis tools} and \myhref{https://github.com/cderici/abstract-machine-interp}{formalisms} to improve meta-tracing efficiency. Implemented run-time optimizations, data structures, and primitives.
+
+}}
+}
+
+%%%%%%%%%%%%%%%%%% RAX %%%%%%%%%%%%%%%%% 
+
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{}
+{} {
+\vspace{-0.4cm}
+\headedsubsection % Job title entry for the current employer
+{\myhref{https://github.com/cderici/rax}{Rax: A full-stack Racket to x86\_64 nanopass compiler}}
+{}
+{\small\bodytext{Implemented all the passes (e.g., closure conversion, register allocation, code-gen, etc.), along with garbage collection. Developed optimizations, such as inlining, loop-invariant code motion, and proper tail-calls.}}
+}
+
+%%%%%%%%%%%%%%%%%% HAZIRCEVAP %%%%%%%%%%%%%%%%% 
+\headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
+{}
+{} {
+\vspace{-0.4cm}
+\headedsubsection % Job title entry for the current employer
+{HazirCevap (Witty): A closed domain question answering system for high school students}
+{}
+{\small\bodytext{Government funded large scale question answering system. MSc thesis on \textsc{NLP} and Machine Learning. Led \textsc{R\&D} team (3 faculties, 4 grad students). Developed a Hidden Markov random field model for question analysis, and relevance metrics for information retrieval and response generation (see publications). Full stack in Python, and JavaScript.}}
+}
+
+\vfill \hfill \small Last compiled on \today
+
+\newpage
+
+\spacedhrule{0.5em}{-0.4em} % Horizontal rule - the first bracket is whitespace before and the second is after
+
+%----------------------------------------------------------------------------------------
+%	SELECTED PUBLICATIONS
+%----------------------------------------------------------------------------------------
+
+\roottitle{Selected Publications} % Top level section
+
+\begin{itemize}
+\item Flatt M., Derici C. Dybvig R. K., Keep A. et. al. “Rebuilding racket on chez scheme (experience report)”, ICFP'19
+
+\item Derici C. et. al. “A closed-domain question answering framework using reliable resources to assist students” \newline Natural Language Engineering'18
+
+\item Derici C. et. al. “Question analysis for a closed domain question answering system”, CICLING'15
+
+\item Derici C. et. al. “Rule-based focus extraction in Turkish question answering systems”, SIU'14
+
+\item Başar R. E., Derici C., and Şenol Ç. “World With Web: A compiler from world applications to JavaScript”. Technical Report, Scheme and Functional Programming Workshop'09
+\end{itemize}
+
+\spacedhrule{0.5em}{-0.4em} % Horizontal rule - the first bracket is whitespace before and the second is after
+
+%----------------------------------------------------------------------------------------
+%	AWARDS
+%----------------------------------------------------------------------------------------
+
+\roottitle{Awards \& Scholarships} % Top level section
+\begin{itemize}
+    \item Scholarship and award for a project on teaching natural languages to hearing impaired, 2014.
+    \item Full Scholarship for PhD, 2015-2020
+    \item Full Scholarship for MSc, 2012 
+    \item Full Scholarship for BSc, 2005-2010
+\end{itemize}
+
+\spacedhrule{0.5em}{-0.4em} % Horizontal rule - the first bracket is whitespace before and the second is after
+
+\vfill \hfill \small Last compiled on \today
+
+\end{document}
