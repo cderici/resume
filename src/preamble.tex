@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Cies Resume/CV
+% LaTeX Template
+% Version 1.1 (20/7/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Cies Breijs (cies@kde.nl)
+% https://github.com/cies/resume with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	CANER CUSTOM COMMANDS
+%----------------------------------------------------------------------------------------
+
+\RequirePackage{fontawesome}
+
+\newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{\normalfont #1}\hspace{0.5em}#2\hspace{2em}}}
+
+
+\newcommand{\myhref}[2]{\mbox{\href{#1}{\textcolor{linkColor}{#2}}}}
+
+\newcommand{\mycomment}[1]{}
+
+\newcommand{\canerhspace}{\hspace{-2mm}}
+
+% ICONS
+\newcommand{\githubsymbol}{\faGithub}
+\newcommand{\github}[1]{\printinfo{\githubsymbol}{#1}}
+\newcommand{\homepagesymbol}{\small\faExternalLink}
+\newcommand{\homepage}[1]{\printinfo{\homepagesymbol}{#1}}
+\newcommand{\locationsymbol}{\faMapMarker}
+\newcommand{\location}[1]{\printinfo{\locationsymbol}{#1}}
+\newcommand{\emailsymbol}{\small\faAt}
+\newcommand{\email}[1]{\printinfo{\emailsymbol}{#1}}
+\newcommand{\scrollsymbol}{\small\faFileO}
+\newcommand{\scroll}[1]{\printinfo{\scrollsymbol}{#1}}
+\newcommand{\linkedinsymbol}{\small\faLinkedinSquare}
+\newcommand{\linkedin}[1]{\printinfo{\linkedinsymbol}{#1}}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[9pt,a4paper]{article} % Font size (10-12pt) and paper size (a4paper, letterpaper, legalpaper, etc)
+
+\hyphenation{Some-long-word} % Specify custom hyphenation points in words with dashes where you would like hyphenation to occur, or alternatively, don't put any dashes in a word to stop hyphenation altogether
+
+\input{structure} % Include structure.tex which contains packages and document layout definitions
+
+\definecolor{linkColor}{RGB}{14, 36, 143}
+
+%----------------------------------------------------------------------------------------
+%	CANER CUSTOM
+%----------------------------------------------------------------------------------------
+
+\colorlet{accent}{blue!70!black}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\input{src/definitions}
