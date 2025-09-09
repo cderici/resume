@@ -8,6 +8,9 @@ main: $(TEXFILES)
 cloud: $(TEXFILES)
 	latexmk -pdf cloud.tex
 
+pl: $(TEXFILES)
+	latexmk -pdf pl.tex
+
 tidy:
 	find . -type f \( \
 	-name "*.log" -o \
