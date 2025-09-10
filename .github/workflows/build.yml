@@ -30,6 +30,31 @@ jobs:
             main.pdf
             pl.pdf
             cloud.pdf
+      # Mirror main.pdf into cderici.github.io/docs/CanerDerici_Resume.pdf
+      - name: Checkout cderici.github.io
+        if: github.ref == 'refs/heads/main'
+        uses: actions/checkout@v4
+        with:
+          repository: cderici/cderici.github.io
+          token: ${{ secrets.PAGES_PUSH_TOKEN }}   # <-- use this secret
+          ref: master                              # your Pages repo default branch
+          path: site
+
+      - name: Copy and push resume
+        if: github.ref == 'refs/heads/main'
+        run: |
+          mkdir -p site/docs
+          cp main.pdf site/docs/CanerDerici_Resume.pdf
+          cd site
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/CanerDerici_Resume.pdf
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update resume from ${GITHUB_REPOSITORY}@${GITHUB_SHA}"
+            git push origin HEAD
+          fi
 
   release:
     needs: build
