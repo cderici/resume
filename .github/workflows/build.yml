@@ -5,7 +5,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '0 8 * * *'
+    - cron: '0 6 * * *'
 
 # The release job needs write access to repo contents
 permissions:
@@ -30,25 +30,25 @@ jobs:
             main.pdf
             pl.pdf
             cloud.pdf
-      # Mirror main.pdf into cderici.github.io/docs/CanerDerici_Resume.pdf
-      - name: Checkout cderici.github.io
+      # Mirror main.pdf into homepage-11ty
+      - name: Checkout homepage-11ty
         if: github.ref == 'refs/heads/main'
         uses: actions/checkout@v4
         with:
-          repository: cderici/cderici.github.io
-          token: ${{ secrets.PAGES_PUSH_TOKEN }}   # <-- use this secret
-          ref: master                              # your Pages repo default branch
+          repository: cderici/homepage-11ty
+          token: ${{ secrets.PAGES_PUSH_TOKEN }}
+          ref:  main
           path: site
 
       - name: Copy and push resume
         if: github.ref == 'refs/heads/main'
         run: |
-          mkdir -p site/docs
-          cp main.pdf site/docs/CanerDerici_Resume.pdf
+          mkdir -p site/src/assets/docs
+          cp main.pdf site/src/assets/docs/CanerDerici_Resume.pdf
           cd site
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/CanerDerici_Resume.pdf
+          git add src/assets/docs/CanerDerici_Resume.pdf
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
