@@ -19,32 +19,29 @@
 %----------------------------------------------------------------------------------------
 %	CANER CUSTOM COMMANDS
 %----------------------------------------------------------------------------------------
-
 \RequirePackage{fontawesome}
 
-\newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{\normalfont #1}\hspace{0.5em}#2\hspace{2em}}}
+\newcommand{\InfoTextSize}{\small}
+\newcommand{\IconSize}{\footnotesize}
 
+\newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{\IconSize #1}\hspace{0.5em}{\InfoTextSize #2}\hspace{2em}}}
 
 \newcommand{\myhref}[2]{\mbox{\href{#1}{\textcolor{linkColor}{#2}}}}
-
 \newcommand{\mycomment}[1]{}
-
 \newcommand{\canerhspace}{\hspace{-2mm}}
 
-% ICONS
 \newcommand{\githubsymbol}{\faGithub}
 \newcommand{\github}[1]{\printinfo{\githubsymbol}{#1}}
-\newcommand{\homepagesymbol}{\small\faExternalLink}
+\newcommand{\homepagesymbol}{\faExternalLink}
 \newcommand{\homepage}[1]{\printinfo{\homepagesymbol}{#1}}
 \newcommand{\locationsymbol}{\faMapMarker}
 \newcommand{\location}[1]{\printinfo{\locationsymbol}{#1}}
-\newcommand{\emailsymbol}{\small\faAt}
+\newcommand{\emailsymbol}{\faAt}
 \newcommand{\email}[1]{\printinfo{\emailsymbol}{#1}}
-\newcommand{\scrollsymbol}{\small\faFileO}
+\newcommand{\scrollsymbol}{\faFileO}
 \newcommand{\scroll}[1]{\printinfo{\scrollsymbol}{#1}}
-\newcommand{\linkedinsymbol}{\small\faLinkedinSquare}
+\newcommand{\linkedinsymbol}{\faLinkedinSquare}
 \newcommand{\linkedin}[1]{\printinfo{\linkedinsymbol}{#1}}
-
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
