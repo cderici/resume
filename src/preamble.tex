@@ -19,33 +19,47 @@
 %----------------------------------------------------------------------------------------
 %	CANER CUSTOM COMMANDS
 %----------------------------------------------------------------------------------------
-\RequirePackage{fontawesome}
+\RequirePackage{fontawesome5}
 
 \newcommand{\InfoTextSize}{\small}
 \newcommand{\IconSize}{\footnotesize}
 
 \newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{\IconSize #1}\hspace{0.3em}{\InfoTextSize #2}\hspace{2em}}}
-
 \newcommand{\printinfoSmall}[2]{\mbox{\textcolor{accent}{\tiny #1}\hspace{0.2em}{\footnotesize #2}\hspace{2em}}}
 
 \newcommand{\myhref}[2]{\mbox{\href{#1}{\textcolor{linkColor}{#2}}}}
 \newcommand{\mycomment}[1]{}
 \newcommand{\canerhspace}{\hspace{-5mm}}
 
-\newcommand{\githubsymbol}{\faGithub}
+\let\faIconRaw\faIcon
+\renewcommand{\faIcon}[2][]{\faIconRaw[regular]{#2}}
+
+\newcommand{\githubsymbol}{\faIcon[brands]{github}}
 \newcommand{\github}[1]{\printinfo{\githubsymbol}{#1}}
-\newcommand{\homepagesymbol}{\faLink}
+
+\newcommand{\homepagesymbol}{\faIcon{link}}
 \newcommand{\homepage}[1]{\printinfo{\homepagesymbol}{#1}}
-\newcommand{\locationsymbol}{\faMapMarker}
+
+\newcommand{\locationsymbol}{\faIcon{map-marker-alt}}
 \newcommand{\location}[1]{\printinfo{\locationsymbol}{#1}}
-\newcommand{\emailsymbol}{\faAt}
+
+\newcommand{\emailsymbol}{\faIconRaw[solid]{envelope}}
 \newcommand{\email}[1]{\printinfo{\emailsymbol}{#1}}
-\newcommand{\scrollsymbol}{\faFileO}
+
+\newcommand{\scrollsymbol}{\faIcon{file}}
 \newcommand{\scroll}[1]{\printinfo{\scrollsymbol}{#1}}
-\newcommand{\externalLinkSym}{\faExternalLink}
+
+\newcommand{\externalLinkSym}{\faIcon{external-link-alt}}
 \newcommand{\externalLink}[1]{\printinfo{\externalLinkSym}{#1}}
-\newcommand{\linkedinsymbol}{\faLinkedinSquare}
+
+\newcommand{\linkedinsymbol}{\faIcon{linkedin}}
 \newcommand{\linkedin}[1]{\printinfo{\linkedinsymbol}{#1}}
+
+\newcommand{\nationalitySym}{\faIcon{passport}}
+\newcommand{\nationality}[1]{\printinfo{\nationalitySym}{#1}}
+
+
+
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
