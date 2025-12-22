@@ -2,7 +2,7 @@
 
 [Main Resume - Compiler Engineer](https://github.com/cderici/resume/releases/download/latest-pdf/pl.pdf), auto-built by CI.
 
-Different variations:
+Different variations (same info - different emphases):
 
 [SWE](https://github.com/cderici/resume/releases/download/latest-pdf/main.pdf), auto-built by CI.
 
