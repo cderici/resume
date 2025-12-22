@@ -44,7 +44,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           mkdir -p site/src/assets/docs
-          cp main.pdf site/src/assets/docs/CanerDerici_Resume.pdf
+          cp pl.pdf site/src/assets/docs/CanerDerici_Resume.pdf
           cd site
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
