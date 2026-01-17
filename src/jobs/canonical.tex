@@ -1,8 +1,23 @@
 %%%%%%%%%%%%%%%%%% CANONICAL %%%%%%%%%%%%%%%%%
 \headedsection{Canonical USA}{\small \textsc{Remote, US}}{
-\headedsubsection{SWE II (L4 - IC3) · Distributed orchestration at scale}{\small 2021 -- 2024}{
+\headedsubsection{SWE II (L4 - IC3) ·
+    % Add only for pl.tex
+    \ifnum\pdfstrcmp{\jobname}{pl}=0
+      Domain Specific Language Compiler \& Distributed Orchestration
+    \else
+      Distributed orchestration at scale
+    \fi
+}{\small 2021 -- 2024}{
 \small \bodytext{
 \begin{itemize}
+
+    % Add only for pl.tex
+    \ifnum\pdfstrcmp{\jobname}{pl}=0
+      \item Designed and developed a custom scripting DSL for (CPU \& memory) restricted computations. Built compiler on top of a modified Lua interpreter in Go.
+    \else
+      % omit
+    \fi
+
   \item Developed and maintained \myhref{https://github.com/juju/juju}{Juju}, an eventually consistent distributed orchestration system used by \textasciitilde200 companies globally, capable of handling 1000+-node workloads with 99.9\% availability on any infrastructure (Kubernetes or otherwise) across various cloud providers (e.g., \acr{AWS}, \acr{GCE}). All in Go.
   \item Improved reliability and fault tolerance by implementing edge machine services on relational \acr{DQL}ite back-end, migrating from No\acr{SQL} Mongo\acr{DB} (e.g., \myhref{https://github.com/juju/juju/pull/17767}{sample \acr{PR}}).
   \item Owned client libraries for three years--\myhref{https://github.com/juju/python-libjuju/graphs/contributors?from=8\%2F31\%2F2021\&to=7\%2F15\%2F2024}{python-libjuju}, \myhref{https://github.com/juju/terraform-provider-juju/graphs/contributors?from=5\%2F22\%2F2021\&to=12\%2F17\%2F2023}{Terraform Juju Provider}; doubled active users and maintained a steady release cadence.
@@ -11,7 +26,7 @@
 }}
 }
 
-% %%%%%%%%%%%%%%%%%% CANONICAL %%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%% CANONICAL %%%%%%%%%%%%%%%%%
 % \headedsection % Employer name which can include a hyperlink and location/URL on the right side of the page
 % {Canonical USA}
 % {\small \textsc{Remote, US}} {
@@ -26,7 +41,7 @@
 %     \item Doubled the user base of client libraries \myhref{https://github.com/juju/python-libjuju/}{Python-libjuju}, \myhref{https://github.com/juju/terraform-provider-juju/}{Terraform Juju Provider}), owned all deliverables for 3 years, and maintained release cadence.
 %     \item Helped transition \myhref{https://github.com/juju/juju}{Juju}'s data model from No\acr{SQL} Mongo\acr{DB} to relational \acr{DQL}ite (e.g., \myhref{https://github.com/juju/juju/pull/17767}{sample \acr{PR}}).
 %     \item Helped re-design the facade-based \acr{RPC} \acr{API} and developed a \acr{REST} \acr{API} alternative with Open\acr{API}.
-%     \item Took part in roadmap planning, cross-team coordination, mentoring junior engineers, and hiring. 
+%     \item Took part in roadmap planning, cross-team coordination, mentoring junior engineers, and hiring.
 % \end{itemize}
 % }}
 % }
