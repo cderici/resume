@@ -5,7 +5,14 @@
     \begin{tabular}{@{} r l @{}}
     \textbf{Areas of Expertise:} & \expertise \\
     \textbf{Languages:} & \proglangs \\
+
+    % Hide Cloud only for pl.tex
+    \ifnum\pdfstrcmp{\jobname}{pl}=0
+    % omit
+    \else
     \textbf{Cloud:} & \acr{Kubernetes} · \acr{AWS} · \acr{GCE} · \acr{Terraform} · \acr{LXD} · \acr{Docker} \\
+    \fi
+
     \textbf{Workflows \& Productivity:} & \acr{Linux} · \acr{Neovim} · \acr{tmux} · \acr{VSCode} · \acr{Copilot} · \acr{Git} · \acr{GH Actions} · \acr{Obsidian} · \acr{Toggl} · \acr{Todoist} \\
     \textbf{API, DB \& Misc:} & \acr{REST} · \acr{gRPC} · \acr{OpenAPI} · \acr{FastAPI} · \acr{DQLite} · \acr{MongoDB} · \acr{PostgreSQL} · \acr{CI/CD} · \acr{Jenkins} \\
 \end{tabular}
