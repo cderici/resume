@@ -14,13 +14,13 @@
 Thank you for considering my application for compiler engineering roles at NVIDIA.
 
 \paragraph{} %
-My PhD work focused on building a self-hosting compiler on top of a meta-tracing JIT backend. That work required low-level performance engineering at the trace code generation level to address issues such as large traces creating instruction-cache pollution and GC pressure in the heap from tracing data-driven control flow. As part of this, I developed optimization techniques to reduce trace size, improved memory behavior by making key heap objects fit within L1 cache, and built performance analysis tools [\href{\dissertationurl}{1}, \href{\pycketperfurl}{2}, \href{\tracedrawurl}{3}]. I also hand-built a full Racket to x86\_64 assembly compiler with all the passes, including instruction selection, liveness analysis for register allocation via interference graphs, manual code generation for calling conventions and stack layout, and garbage collection [\href{\raxurl}{4}]. I also co-designed the intermediate representation currently shipped with the main Racket distribution, whose design and formal semantics are documented in my dissertation [\href{\icfpreporturl}{5}, \href{\dissertationurl}{1}].
+My PhD work focused on building a self-hosting compiler on top of a tracing JIT backend. That work required low-level performance engineering in trace code generation to address issues such as large traces from tracing data-driven control flow creating instruction-cache pollution and GC pressure in the heap. I developed optimization techniques to reduce trace size, improved memory behavior by making key heap objects fit within L1 cache, and built performance analysis tooling [\href{\dissertationurl}{1}, \href{\pycketperfurl}{2}, \href{\tracedrawurl}{3}]. I also co-designed the IR that's currently shipped with the main Racket distribution, published in a paper and documented more fully, including its formal semantics, in my dissertation [\href{\icfpreporturl}{4}, \href{\dissertationurl}{1}]. Separately, I hand-built a full Racket to x86\_64 assembly compiler with all passes, including instruction selection, register allocation via liveness analysis and interference graphs, manual code generation for calling conventions and stack layout, and garbage collection [\href{\raxurl}{5}].
 
 \paragraph{} %
-Since finishing my PhD, I have been developing my Around the World in 26 Languages project, where I experiment with a language/compiler for each letter of the alphabet [\href{\atwurl}{6}]. All the languages are written in C++, and most of them target LLVM IR, while some use MLIR dialects such as \emph{affine} and \emph{linalg} for optimization work based on polyhedral analysis. In one compilation path, I use the \texttt{nvptx64-nvidia-cuda} backend to generate PTX kernels targeting NVIDIA GPUs, and I use the CUDA Driver API to launch the generated kernels. More recently, I have been experimenting there with SIMT code generation, instruction pipelining, and loop parallelism through Tapir/LLVM and Cilk. Some of this work lives in my private homelab infrastructure, where I run experiments on actual NVIDIA GPUs on VMs [\href{\homelaburl}{7}]. In this project, I also experiment with autotuners to improve compilation performance using my machine learning background.
+Since finishing my PhD, I have been developing my Around the World in 26 Languages project, where I experiment with a language or compiler for each letter of the alphabet [\href{\atwurl}{6}]. All languages are written in C++, and most target LLVM IR, while some use MLIR dialects such as \emph{affine} and \emph{linalg} for optimization based on polyhedral analysis. In one compilation path, I use the \texttt{nvptx64-nvidia-cuda} backend to generate PTX kernels targeting NVIDIA GPUs, and I use the CUDA Driver API to launch the generated kernels. I am also familiar with LLVM backend code generation, including SelectionDAG, TableGen, and MIR. One area I want to explore there is GlobalISel, ultimately to retarget some of these languages to Arm CPUs as well. More recently, I have been experimenting with Tapir/LLVM and Cilk to explore loop parallelism, and some instruction pipelining. Some of this work lives in my private homelab, where I run experiments on NVIDIA GPUs on VMs [\href{\homelaburl}{7}]. In this project, I also experiment with developing autotuners to improve compilation performance using my machine learning background.
 
 \paragraph{} %
-During my PhD, I also worked at Canonical for three years, where I designed and developed a domain-specific language in Go for CPU and memory-constrained computation within the Juju cloud orchestration ecosystem. Aside from compilers, this gave me experience in distributed software, production software engineering, maintainability, collaboration, roadmap planning, hiring, and mentoring junior engineers.
+During my PhD, I worked at Canonical for three years, where I designed and developed a DSL in Go for CPU and memory-constrained computation within the Juju cloud orchestration ecosystem. Aside from compilers, this gave me experience in distributed software, production software engineering, maintainability, cross-team work, roadmap planning, hiring, and mentoring junior engineers.
 
 \paragraph{} %
 For these reasons, I believe my background is a strong fit for compiler engineering roles at NVIDIA. I’d be excited for the opportunity to contribute. Thank you again for your consideration.
@@ -38,12 +38,12 @@ Caner Derici
 \noindent \href{\dissertationurl}{[1] PhD Dissertation} \\
 \noindent \href{\pycketperfurl}{[2] GitHub: pycket-performance} \\
 \noindent \href{\tracedrawurl}{[3] GitHub: trace-draw} \\
-\noindent \href{\raxurl}{[4] GitHub: Rax, Racket to x86\_64 Assembly} \\
-\noindent \href{\icfpreporturl}{[5] Flatt, Derici, Dybvig, Keep et al., ``Rebuilding Racket on Chez Scheme'', ICFP 2019} \\
+\noindent \href{\icfpreporturl}{[4] Flatt, Derici, Dybvig, Keep et al., ``Rebuilding Racket on Chez Scheme'', ICFP 2019} \\
+\noindent \href{\raxurl}{[5] GitHub: Rax, Racket to x86\_64 Assembly} \\
 \noindent \href{\atwurl}{[6] GitHub: Around the World in 26 Languages} \\
 \noindent \href{\homelaburl}{[7] Live Homelab Overview}
 }
 
-\vfill \hfill \small Last compiled on \today
+% \vfill \hfill \small Last compiled on \today
 
 \end{document}
