@@ -10,7 +10,14 @@
     \ifnum\pdfstrcmp{\jobname}{pl}=0
     % omit
     \else
-    \textbf{Cloud:} & \acr{Kubernetes} · \acr{AWS} · \acr{GCE} · \acr{Terraform} · \acr{LXD} · \acr{Docker} \\
+        \textbf{Cloud:} & \acr{Kubernetes} · \acr{AWS} · \acr{GCE} · \acr{Terraform} · \acr{LXD} · \acr{Docker} \\
+    \fi
+
+    % Show stuff only for custom
+    \ifnum\pdfstrcmp{\jobname}{custom}=0
+        \textbf{ML:} & \acr{TensorFlow} · \acr{PyTorch} · \acr{Triton} \\
+    \else
+    % omit
     \fi
 
     \textbf{Workflows \& Productivity:} & \acr{Linux} · \acr{Neovim} · \acr{tmux} · \acr{VSCode} · \acr{OpenCode} · \acr{Codex} · \acr{Git} · \acr{GH Actions} · \acr{Obsidian} \\

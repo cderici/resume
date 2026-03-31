@@ -1,6 +1,7 @@
 SWE_TEX := targets/swe/swe.tex
 PL_TEX := targets/pl/pl.tex
 CLOUD_TEX := targets/cloud/cloud.tex
+CUSTOM_TEX := targets/custom/custom.tex
 COVER_LETTERS_TEX := $(filter-out cover-letters/shared/%.tex,$(wildcard cover-letters/*/*.tex))
 
 all:  swe cloud pl
@@ -13,6 +14,11 @@ swe: $(SWE_TEX)
 cloud: $(CLOUD_TEX)
 	latexmk -pdf -output-directory=targets/cloud $(CLOUD_TEX)
 	cp targets/cloud/cloud.pdf cloud.pdf
+	$(MAKE) tidy
+
+custom: $(CUSTOM_TEX)
+	latexmk -pdf -output-directory=targets/custom $(CUSTOM_TEX)
+	cp targets/custom/custom.pdf custom.pdf
 	$(MAKE) tidy
 
 pl: $(PL_TEX)
@@ -62,4 +68,4 @@ tidy:
 
 
 clean: tidy
-	$(RM) targets/swe/swe.pdf targets/pl/pl.pdf targets/cloud/cloud.pdf swe.pdf pl.pdf cloud.pdf
+	$(RM) targets/swe/swe.pdf targets/pl/pl.pdf targets/cloud/cloud.pdf targets/custom/custom.pdf swe.pdf pl.pdf cloud.pdf custom.pdf

@@ -1,0 +1,77 @@
+\input{src/shared/preamble}
+
+\begin{document}
+
+%----------------------------  MAIN  ----------------------------------------------------
+%	Section order
+%
+% Tech Skills
+% Education
+% Projects
+% Experience
+% Publications
+% Awards
+%----------------------------------------------------------------------------------------
+
+\input{src/topsection}
+
+\vspace{-4mm}
+
+\spacedhrule{0.9em}{-0.4em}
+
+%------------------------------------------------
+%	Technical Skills
+%------------------------------------------------
+\providecommand{\expertise}{\acr{Compilers} · \acr{Machine Learning} · \acr{Distributed Systems}}
+\providecommand{\proglangs}{\acr{C++} · \acr{Go} · \acr{Python} · \acr{Racket/Scheme} · \acr{Java} · \acr{SQL}}
+\input{src/techskills}
+
+\vspace{-5mm}
+
+\spacedhrule{1.6em}{-0.4em}
+
+%------------------------------------------------
+%	Education
+%------------------------------------------------
+\input{src/education}
+
+\spacedhrule{0.5em}{-0.4em}
+
+%------------------------------------------------
+%	Projects
+%------------------------------------------------
+\providecommand{\projectorder}{juju,hazircevap,fars,terraform,pycket,around-the-world,racketir,rax}
+\input{src/projects}
+
+% \vspace{-0.2cm}
+
+\spacedhrule{0.5em}{-0.4em}
+
+%------------------------------------------------
+%	Experience
+%------------------------------------------------
+\input{src/experience}
+
+\vspace{0.2cm}
+
+% \vfill \hfill \small Last compiled on \today
+
+\spacedhrule{0.5em}{-0.4em}
+
+%------------------------------------------------
+%	Publications
+%------------------------------------------------
+\input{src/publications}
+
+\spacedhrule{0.5em}{-0.4em}
+
+%------------------------------------------------
+%	Awards
+%------------------------------------------------
+\input{src/awards}
+
+\spacedhrule{0.5em}{-0.4em}
+
+\vfill \hfill \small Last compiled on \today
+
+\end{document}
