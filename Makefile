@@ -2,7 +2,11 @@ SWE_TEX := targets/swe/swe.tex
 PL_TEX := targets/pl/pl.tex
 CLOUD_TEX := targets/cloud/cloud.tex
 CUSTOM_TEX := targets/custom/custom.tex
-COVER_LETTERS_TEX := $(filter-out cover-letters/shared/%.tex,$(wildcard cover-letters/*/*.tex))
+COVER_LETTERS_TEX := $(wildcard cover-letters/*/*.tex)
+COVER_LETTERS_PDF := $(patsubst %.tex,%.pdf,$(COVER_LETTERS_TEX))
+COVER_LETTERS_TOPLEVEL_PDF := $(notdir $(COVER_LETTERS_PDF))
+
+.PHONY: all swe cloud custom pl cover-letters tidy clean
 
 all:  swe cloud pl
 
@@ -27,7 +31,10 @@ pl: $(PL_TEX)
 	$(MAKE) tidy
 
 cover-letters: $(COVER_LETTERS_TEX)
-	@for tex in $(COVER_LETTERS_TEX); do latexmk -pdf -output-directory=$$(dirname $$tex) $$tex; done
+	@for tex in $(COVER_LETTERS_TEX); do \
+		latexmk -pdf -output-directory=$$(dirname $$tex) $$tex; \
+		cp $${tex%.tex}.pdf .; \
+	done
 	$(MAKE) tidy
 
 tidy:
@@ -68,4 +75,4 @@ tidy:
 
 
 clean: tidy
-	$(RM) targets/swe/swe.pdf targets/pl/pl.pdf targets/cloud/cloud.pdf targets/custom/custom.pdf swe.pdf pl.pdf cloud.pdf custom.pdf
+	$(RM) targets/swe/swe.pdf targets/pl/pl.pdf targets/cloud/cloud.pdf targets/custom/custom.pdf swe.pdf pl.pdf cloud.pdf custom.pdf $(COVER_LETTERS_PDF) $(COVER_LETTERS_TOPLEVEL_PDF)
