@@ -1,19 +1,28 @@
-TEXFILES := $(wildcard *.tex)
+MAIN_TEX := targets/main/main.tex
+PL_TEX := targets/pl/pl.tex
+CLOUD_TEX := targets/cloud/cloud.tex
 COVER_LETTERS_TEX := $(filter-out cover-letters/shared/%.tex,$(wildcard cover-letters/*/*.tex))
 
 all:  main cloud pl
 
-main: $(TEXFILES)
-	latexmk -pdf main.tex
+main: $(MAIN_TEX)
+	latexmk -pdf -output-directory=targets/main $(MAIN_TEX)
+	cp targets/main/main.pdf main.pdf
+	$(MAKE) tidy
 
-cloud: $(TEXFILES)
-	latexmk -pdf cloud.tex
+cloud: $(CLOUD_TEX)
+	latexmk -pdf -output-directory=targets/cloud $(CLOUD_TEX)
+	cp targets/cloud/cloud.pdf cloud.pdf
+	$(MAKE) tidy
 
-pl: $(TEXFILES)
-	latexmk -pdf pl.tex
+pl: $(PL_TEX)
+	latexmk -pdf -output-directory=targets/pl $(PL_TEX)
+	cp targets/pl/pl.pdf pl.pdf
+	$(MAKE) tidy
 
 cover-letters: $(COVER_LETTERS_TEX)
 	@for tex in $(COVER_LETTERS_TEX); do latexmk -pdf -output-directory=$$(dirname $$tex) $$tex; done
+	$(MAKE) tidy
 
 tidy:
 	find . -type f \( \
@@ -53,4 +62,4 @@ tidy:
 
 
 clean: tidy
-	$(RM) main.pdf
+	$(RM) targets/main/main.pdf targets/pl/pl.pdf targets/cloud/cloud.pdf main.pdf pl.pdf cloud.pdf
