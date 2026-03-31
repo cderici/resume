@@ -1,4 +1,5 @@
 TEXFILES := $(wildcard *.tex)
+COVER_LETTERS_TEX := $(filter-out cover-letters/shared/%.tex,$(wildcard cover-letters/*/*.tex))
 
 all:  main cloud pl
 
@@ -10,6 +11,9 @@ cloud: $(TEXFILES)
 
 pl: $(TEXFILES)
 	latexmk -pdf pl.tex
+
+cover-letters: $(COVER_LETTERS_TEX)
+	@for tex in $(COVER_LETTERS_TEX); do latexmk -pdf -output-directory=$$(dirname $$tex) $$tex; done
 
 tidy:
 	find . -type f \( \
