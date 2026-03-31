@@ -1,13 +1,13 @@
-MAIN_TEX := targets/main/main.tex
+SWE_TEX := targets/swe/swe.tex
 PL_TEX := targets/pl/pl.tex
 CLOUD_TEX := targets/cloud/cloud.tex
 COVER_LETTERS_TEX := $(filter-out cover-letters/shared/%.tex,$(wildcard cover-letters/*/*.tex))
 
-all:  main cloud pl
+all:  swe cloud pl
 
-main: $(MAIN_TEX)
-	latexmk -pdf -output-directory=targets/main $(MAIN_TEX)
-	cp targets/main/main.pdf main.pdf
+swe: $(SWE_TEX)
+	latexmk -pdf -output-directory=targets/swe $(SWE_TEX)
+	cp targets/swe/swe.pdf swe.pdf
 	$(MAKE) tidy
 
 cloud: $(CLOUD_TEX)
@@ -62,4 +62,4 @@ tidy:
 
 
 clean: tidy
-	$(RM) targets/main/main.pdf targets/pl/pl.pdf targets/cloud/cloud.pdf main.pdf pl.pdf cloud.pdf
+	$(RM) targets/swe/swe.pdf targets/pl/pl.pdf targets/cloud/cloud.pdf swe.pdf pl.pdf cloud.pdf

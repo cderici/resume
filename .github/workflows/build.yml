@@ -1,4 +1,4 @@
-name: Build main
+name: Build resumes
 
 on:
   workflow_dispatch:
@@ -27,10 +27,10 @@ jobs:
         with:
           name: resumes
           path: |
-            main.pdf
+            swe.pdf
             pl.pdf
             cloud.pdf
-      # Mirror main.pdf into homepage-11ty
+      # Mirror swe.pdf into homepage-11ty
       - name: Checkout homepage-11ty
         if: github.ref == 'refs/heads/main'
         uses: actions/checkout@v4
@@ -44,7 +44,7 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           mkdir -p site/src/assets/docs
-          cp main.pdf site/src/assets/docs/CanerDerici_Resume.pdf
+          cp swe.pdf site/src/assets/docs/CanerDerici_Resume.pdf
           cd site
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -76,7 +76,7 @@ jobs:
           body: |
             Automated build from commit ${{ github.sha }}.
             This release is replaced on every successful CI run.
-          artifacts: "main.pdf,pl.pdf,cloud.pdf"
+          artifacts: "swe.pdf,pl.pdf,cloud.pdf"
           allowUpdates: true
           replacesArtifacts: true
           artifactContentType: application/pdf

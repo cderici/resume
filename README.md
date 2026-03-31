@@ -6,5 +6,4 @@ This repository builds my resume procedurally from reusable components, producin
 
 [Cloud Computing & Distributed Systems](https://github.com/cderici/resume/releases/download/latest-pdf/cloud.pdf), auto-built by CI.
 
-[Generic SWE](https://github.com/cderici/resume/releases/download/latest-pdf/main.pdf), auto-built by CI.
-
+[Software Engineer](https://github.com/cderici/resume/releases/download/latest-pdf/swe.pdf), auto-built by CI.
