@@ -1,0 +1,62 @@
+\input{src/shared/preamble}
+
+\newcommand{\dissertationurl}{https://github.com/cderici/dissertation/releases/download/latest-pdf/thesis.pdf}
+\newcommand{\pycketperfurl}{https://github.com/cderici/pycket-performance}
+\newcommand{\tracedrawurl}{https://github.com/cderici/trace-draw}
+\newcommand{\raxurl}{https://github.com/cderici/rax}
+\newcommand{\icfpreporturl}{https://dl.acm.org/doi/10.1145/3341642}
+\newcommand{\atwurl}{https://github.com/cderici/around-the-world-in-26-languages}
+\newcommand{\homelaburl}{https://home.dericilab.live/homelab/}
+
+\newcommand{\cairolang}{https://github.com/cderici/around-the-world-in-compilers/blob/main/langs/cairo/README.md}
+\newcommand{\dublinlang}{https://github.com/cderici/around-the-world-in-compilers/blob/main/langs/dublin/README.md}
+\newcommand{\edinlang}{https://github.com/cderici/around-the-world-in-compilers/blob/main/langs/edinburgh/README.md}
+
+% GC pressure in the heap
+
+
+\begin{document}
+
+\paragraph{} % 1
+Thank you for considering my application for deep learning compiler engineering roles at \acr{NVIDIA}.
+
+\paragraph{} % 2
+My \acr{PhD} work focused on building a self-hosting compiler on top of a tracing \acr{JIT} backend [\href{\dissertationurl}{1}]. That work required both high-level and low-level performance engineering in trace code generation to address issues such as large traces produced by tracing data-driven control flow, which created cache pollution and memory pressure. I developed optimization techniques to reduce trace size and improved memory behavior by making key heap objects fit within \acr{L1} cache lines. I also implemented peephole and loop optimizations in the generated trace assembly code, including \acr{ILP}-oriented optimizations, using performance analysis tooling that I built [\href{\pycketperfurl}{2}, \href{\tracedrawurl}{3}]. In related work, I co-designed the \acr{IR} that's currently shipped with the main Racket distribution; that work was published in a paper and documented more fully, including its formal semantics, in my dissertation [\href{\icfpreporturl}{4}]. Separately, I built a full end-to-end Racket to \acr{x86\_64} assembly compiler, hand-writing all the passes, including instruction selection, register allocation, code generation that handles calling conventions and the stack layout, along with a mark-and-sweep garbage collector in \acr{C} [\href{\raxurl}{5}].
+
+\paragraph{} % 3
+Since finishing my \acr{PhD}, I have been developing my \emph{Around the World in Compilers} project, where I experiment with a language or compiler for each letter of the alphabet [\href{\atwurl}{6}]. Some working examples from that project include one compiler that uses \acr{LLVM IR} and the \acr{LLVM NVPTX} backend with the \texttt{nvptx64-nvidia-cuda} target triple to generate \acr{PTX} kernels targeting \acr{NVIDIA} \acr{GPU}s, then uses the \acr{CUDA} Driver \acr{API} to launch the generated kernels [\href{\cairolang}{7}]. Another compiler uses the \emph{\acr{MLIR}.smt} dialect to express user-level assertion queries with straight-line bitvector arithmetic, emits \emph{\acr{SMT-LIB}} code, and runs that code against the \emph{\acr{Z3}} \acr{SMT} solver to verify those assertions [\href{\dublinlang}{8}]. I also experiment with a custom \emph{MachineScheduler} plugged into the \acr{LLVM} backend to favor scheduling units with higher dependency heights and compare the resulting \acr{MIR} with what \acr{LLVM}'s default scheduler produces [\href{\edinlang}{9}].
+
+\paragraph{} % 4
+Additionally, I have an \acr{MSc} in machine learning, and I am using that background to develop an auto-tuner for experimenting with different schedules for tensor (\acr{ML}) compiler kernels. I am currently working with a bandit and a genetic learner, two models that compete to learn scheduling parameters (e.g., tile dimensions, block sizes, unroll times, shared memory use, etc.). Most of this work lives in my private homelab, where I run experiments on \acr{VM}s with passthrough \acr{NVIDIA} \acr{GPU}s [\href{\homelaburl}{10}].
+
+\paragraph{} % 5
+Around 2021, I took a break from my \acr{PhD} work and worked at Canonical for about three years, where I designed and developed a \acr{DSL} for \acr{CPU}- and memory-constrained computations within the Juju cloud orchestration ecosystem. Beyond compilers, that work gave me experience in distributed software, production software engineering, maintainability, cross-team collaboration, roadmap planning, hiring, and mentoring junior engineers.
+
+\paragraph{} % 6
+For these reasons, I believe my background is a strong fit for deep learning compiler engineering roles at \acr{NVIDIA}. I'd be excited for the opportunity to contribute. Thank you again for your consideration.
+
+\vspace{1.2em}
+
+Sincerely,
+
+Caner Derici, \acr{PhD}
+
+\vfill
+
+{\small
+	\noindent\textbf{References} \\[0.25em]
+	\noindent \href{\dissertationurl}{[1] \acr{PhD} Dissertation (\acr{PDF})} \\
+	\noindent \href{\pycketperfurl}{[2] GitHub: pycket-performance} \\
+	\noindent \href{\tracedrawurl}{[3] GitHub: trace-draw} \\
+	\noindent \href{\icfpreporturl}{[4] Flatt, Derici, Dybvig, Keep et al., ``Rebuilding Racket on Chez Scheme'', \acr{ICFP} 2019} \\
+	\noindent \href{\raxurl}{[5] GitHub: Rax, Racket to \acr{x86\_64} Assembly} \\
+	\noindent \href{\atwurl}{[6] GitHub: Around the World in 26 Languages} \\
+	\noindent \href{\cairolang}{[7] GitHub: Cairo compiler} \\
+	\noindent \href{\dublinlang}{[8] GitHub: Dublin verifier} \\
+	\noindent \href{\edinlang}{[9] GitHub: Edinburgh scheduler} \\
+	\noindent \href{\homelaburl}{[10] Live Homelab Overview}
+}
+
+% \vfill \hfill \small Last compiled on \today
+
+\end{document}
