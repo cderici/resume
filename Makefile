@@ -5,8 +5,9 @@ CUSTOM_TEX := targets/custom/custom.tex
 COVER_LETTERS_TEX := $(wildcard cover-letters/*/*.tex)
 COVER_LETTERS_PDF := $(patsubst %.tex,%.pdf,$(COVER_LETTERS_TEX))
 COVER_LETTERS_TOPLEVEL_PDF := $(notdir $(COVER_LETTERS_PDF))
+COVER_LETTERS_TARGETS := $(basename $(notdir $(COVER_LETTERS_TEX)))
 
-.PHONY: all swe cloud custom pl cover-letters tidy clean
+.PHONY: all swe cloud custom pl cover-letters $(COVER_LETTERS_TARGETS) tidy clean
 
 all:  swe cloud pl
 
@@ -36,6 +37,15 @@ cover-letters: $(COVER_LETTERS_TEX)
 		cp $${tex%.tex}.pdf .; \
 	done
 	$(MAKE) tidy
+
+define COVER_LETTER_TARGET
+$(basename $(notdir $(1))): $(1)
+	latexmk -pdf -output-directory=$(dir $(1)) $(1)
+	cp $(patsubst %.tex,%.pdf,$(1)) .
+	$$(MAKE) tidy
+endef
+
+$(foreach tex,$(COVER_LETTERS_TEX),$(eval $(call COVER_LETTER_TARGET,$(tex))))
 
 tidy:
 	find . -type f \( \
