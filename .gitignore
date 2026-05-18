@@ -13,7 +13,8 @@
 .*.lb
 *.ist
 
-.vscode
+.vscode/*
+!.vscode/settings.json
 
 ## Intermediate documents:
 *.dvi
