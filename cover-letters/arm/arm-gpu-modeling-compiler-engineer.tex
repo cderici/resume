@@ -1,0 +1,61 @@
+% !TEX root = arm-gpu-modeling-compiler-engineer.tex
+\input{src/shared/preamble}
+
+\newcommand{\dissertationurl}{https://github.com/cderici/dissertation/releases/download/latest-pdf/thesis.pdf}
+\newcommand{\pycketperfurl}{https://github.com/cderici/pycket-performance}
+\newcommand{\tracedrawurl}{https://github.com/cderici/trace-draw}
+\newcommand{\raxurl}{https://github.com/cderici/rax}
+\newcommand{\icfpreporturl}{https://dl.acm.org/doi/10.1145/3341642}
+\newcommand{\atwurl}{https://github.com/cderici/around-the-world-in-26-languages}
+\newcommand{\homelaburl}{https://home.dericilab.live/homelab/}
+
+\newcommand{\cairolang}{https://github.com/cderici/around-the-world-in-compilers/blob/main/langs/cairo/README.md}
+\newcommand{\edinburghurl}{https://github.com/cderici/around-the-world-in-compilers/blob/main/langs/edinburgh/README.md}
+
+\begin{document}
+
+\paragraph{} %
+Thank you for considering my application for the Senior GPU Modeling \& Compiler Engineer role at Arm.
+
+\paragraph{} %
+My compiler work has centered on backend performance, runtime representation, and code generation. For my PhD dissertation work, I built a self-hosting compiler and runtime system on top of a tracing JIT backend. That work required low-level performance engineering in code generation, runtime representation, and generated trace behavior. I investigated and addressed issues such as large traces from tracing data-driven control flow, instruction-cache pressure, GC pressure, and inefficient heap-object layouts. I developed optimization techniques to reduce trace size, improved memory behavior by making key heap objects fit within L1 cache, and built performance-analysis tooling to understand generated traces and their runtime behavior [\href{\dissertationurl}{1}, \href{\pycketperfurl}{2}, \href{\tracedrawurl}{3}]. I also co-designed the IR that is currently shipped with the main Racket distribution, published in a paper and documented more fully, including its formal semantics, in my dissertation [\href{\icfpreporturl}{4}, \href{\dissertationurl}{1}].
+
+\paragraph{} %
+In addition to that research work, I hand-built a full Racket to x86\_64 assembly compiler with all major backend passes, including instruction selection, liveness analysis, interference-graph construction, register allocation, calling-convention implementation, stack-frame layout, manual code generation, and garbage collection [\href{\raxurl}{5}].
+
+\paragraph{} %
+Since finishing my PhD, I have been developing my \emph{Around the World in Compilers} project, where I experiment with a language or compiler for each letter of the alphabet [\href{\atwurl}{6}]. The languages are written in C++, and several target LLVM IR or MLIR dialects such as \emph{affine} and \emph{linalg}. Some working examples from that project include one compiler that uses LLVM IR and the LLVM NVPTX backend with the \texttt{nvptx64-nvidia-cuda} target triple to generate PTX kernels targeting NVIDIA GPUs, then uses the CUDA Driver API to launch the generated kernels [\href{\cairolang}{7}]. I am also familiar with LLVM backend code generation, including SelectionDAG, TableGen, MIR, MachineScheduler, and GlobalISel. One entry in this project, Edinburgh, is an LLVM MIR scheduling playground that plugs an out-of-tree scheduler into LLVM's machine scheduler through \texttt{MachineSchedRegistry}, selects it through \texttt{-misched=edinburgh}, and compares the resulting MIR against LLVM's default scheduler [\href{\edinburghurl}{8}]. Through this project, I have continued developing practical compiler engineering experience in IR design, lowering pipelines, optimization passes, code generation, runtime interfaces, backend experimentation, and target-aware scheduling.
+
+\paragraph{} %
+Additionally, I have an MSc in Machine Learning, and I am using that background to develop an auto-tuner for experimenting with different schedules for tensor compiler kernels. I am currently working with a bandit and a genetic learner, two models that compete to learn scheduling parameters, such as tile dimensions, block sizes, unroll times, shared memory use, etc. Most of this work lives in my private homelab, where I run experiments on VMs with passthrough NVIDIA GPUs [\href{\homelaburl}{9}].
+
+\paragraph{} %
+At Canonical, I was recruited to design and build a DSL for restricted computation in a custom cloud orchestration system. The language was intended to run across heterogeneous machine architectures, including x86\_64, AArch64, and RISC-V, so I initially designed it as an LLVM front end: the domain-specific restrictions and semantics were represented at the language level, lowered to LLVM IR, and then compiled using LLVM's target-specific backend infrastructure. For product and integration reasons, the final implementation became a higher-level solution built on top of an existing Lua interpreter. Beyond compilers, that work gave me experience in distributed software, production engineering, maintainability, cross-team collaboration, roadmap planning, hiring, and mentoring junior engineers.
+
+\paragraph{} %
+For these reasons, I believe my background is a strong fit for GPU architecture and compiler engineering work at Arm. I would be excited for the opportunity to contribute. Thank you again for your consideration.
+
+\vspace{1.2em}
+
+Sincerely,
+
+Caner Derici, PhD
+
+\vfill
+
+{\small
+	\noindent\textbf{References} \\[0.25em]
+	\noindent \href{\dissertationurl}{[1] PhD Dissertation} \\
+	\noindent \href{\pycketperfurl}{[2] GitHub: pycket-performance} \\
+	\noindent \href{\tracedrawurl}{[3] GitHub: trace-draw} \\
+	\noindent \href{\icfpreporturl}{[4] Flatt, Derici, Dybvig, Keep et al., ``Rebuilding Racket on Chez Scheme'', ICFP 2019} \\
+	\noindent \href{\raxurl}{[5] GitHub: Rax, Racket to x86\_64 Assembly} \\
+	\noindent \href{\atwurl}{[6] GitHub: Around the World in 26 Languages} \\
+	\noindent \href{\cairolang}{[7] GitHub: Cairo compiler} \\
+	\noindent \href{\edinburghurl}{[8] GitHub: Edinburgh, LLVM Custom MIR Scheduling} \\
+	\noindent \href{\homelaburl}{[9] Live Homelab Overview}
+}
+
+% \vfill \hfill \small Last compiled on \today
+
+\end{document}
